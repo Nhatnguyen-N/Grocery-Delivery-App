@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const userSchema = new mongoose.Schema({
   name: { type: String },
   role: {
-    type: StaticRange,
+    type: String,
     enum: ["Customer", "Admin", "DeliveryPartner"],
     required: true,
   },
