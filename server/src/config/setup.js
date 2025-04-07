@@ -6,11 +6,15 @@ import { authenticate, COOKIE_PASSWORD, sessionStore } from "./config.js";
 import { dark, light, noSidebar } from "@adminjs/themes";
 
 AdminJS.registerAdapter(AdminJSMongoose);
+const adminNavigation = {
+  name: "Grocery App",
+};
 export const admin = new AdminJS({
   resources: [
     {
       resource: Models.Customer,
       options: {
+        navigation: adminNavigation,
         listProperties: ["phone", "role", "isActivated"],
         filterProperties: ["phone", "role"],
       },
@@ -18,6 +22,7 @@ export const admin = new AdminJS({
     {
       resource: Models.DeliveryPartner,
       options: {
+        navigation: adminNavigation,
         listProperties: ["email", "role", "isActivated"],
         filterProperties: ["email", "role"],
       },
@@ -25,15 +30,41 @@ export const admin = new AdminJS({
     {
       resource: Models.Admin,
       options: {
+        navigation: adminNavigation,
         listProperties: ["email", "role", "isActivated"],
         filterProperties: ["email", "role"],
       },
     },
-    { resource: Models.Branch },
-    { resource: Models.Product },
-    { resource: Models.Category },
-    { resource: Models.Order },
-    { resource: Models.Counter },
+    {
+      resource: Models.Branch,
+      options: {
+        navigation: adminNavigation,
+      },
+    },
+    {
+      resource: Models.Product,
+      options: {
+        navigation: adminNavigation,
+      },
+    },
+    {
+      resource: Models.Category,
+      options: {
+        navigation: adminNavigation,
+      },
+    },
+    {
+      resource: Models.Order,
+      options: {
+        navigation: adminNavigation,
+      },
+    },
+    {
+      resource: Models.Counter,
+      options: {
+        navigation: adminNavigation,
+      },
+    },
   ],
   branding: {
     companyName: "Grocery Delivery App",
